@@ -1,86 +1,227 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NourishNet - Reimagining Food Security</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Google Analytics Tag - You will add your Measurement ID here -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f3f8ff">
+    <title>NourishNet — Smarter Food Bank Operations</title>
+    <meta name="description" content="NourishNet is an AI-powered platform that streamlines food bank operations, improves communication, and enhances donor and recipient experiences.">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🥗</text></svg>">
+
+    <link rel="stylesheet" href="./styles.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CN496TDVE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
       gtag('config', 'G-3CN496TDVE');
     </script>
-    
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Connecting Communities, One Meal at a Time.</h1>
-            <p class="subtitle">Introducing NourishNet: A new platform to streamline food bank operations and ensure everyone has access to nutritious food.</p>
-            <div class="video-placeholder">
-                <!-- You will replace this div with your YouTube/Vimeo embed code -->
-                <p>Your Concept Video Here</p>
-            </div>
-            <div class="cta-section">
-                <h3>Be the first to know when we launch.</h3>
-                <form id="interest-form" action="https://script.google.com/macros/s/AKfycbzCPtmim-uxGxYGQ0U6KO5B8imxsIjS8kkTrIC7UUsshjT7uw3RiEK3dRgA1sjRyGrh-A/exec" method="post">
-                    <input type="email" name="email" placeholder="Enter your email address" required>
-                    <button type="submit" class="cta-button">Join the Waitlist</button>
-                </form>
-                <p id="form-success-message" style="display:none;">Thank you for your interest! We'll be in touch.</p>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <p>Learn More</p>
-            <span></span>
-        </div>
+  </head>
+  <body>
+    <div class="background">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="grid-overlay" aria-hidden="true"></div>
+    </div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#">NourishNet</a>
+        <nav class="nav">
+          <a href="#features">Features</a>
+          <a href="#modules">Modules</a>
+          <a href="#impact">Impact</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a class="cta ghost" href="#interest">Get early access</a>
+      </div>
     </header>
 
     <main>
-        <section class="problem">
-            <h2>The Hidden Struggle in Our Communities</h2>
-            <p>Millions face food insecurity, yet logistical challenges in food banks—from inventory chaos to communication gaps—mean that perfectly good food doesn't always reach those who need it most.</p>
-        </section>
-
-        <section class="solution">
-            <h2>Our Solution: Smart, Simple, and Scalable.</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <img src="https://via.placeholder.com/80" alt="Icon for Inventory Management">
-                    <h3>AI-Powered Inventory</h3>
-                    <p>Predictive alerts tell you what you need before you run out, turning guesswork into a science.</p>
-                </div>
-                <div class="feature-card">
-                    <img src="https://via.placeholder.com/80" alt="Icon for Communication Hub">
-                    <h3>Unified Communication</h3>
-                    <p>Centralize all staff and volunteer communication, eliminating missed messages and duplicate work.</p>
-                </div>
-                <div class="feature-card">
-                    <img src="https://via.placeholder.com/80" alt="Icon for Data Insights">
-                    <h3>Actionable Insights</h3>
-                    <p>Visualize your impact with data-driven reports on community needs and distribution effectiveness.</p>
-                </div>
+      <section class="hero" id="top" aria-label="Hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1 class="headline">
+              Smarter food bank operations,
+              <span class="accent">human-centered impact</span>
+            </h1>
+            <p class="subheadline">
+              An AI-powered platform for inventory, coordination, and dignified donor–recipient experiences. Join early to shape the future of food security.
+            </p>
+            <form id="interestForm" class="interest-form" aria-label="Join waitlist">
+              <div class="input-wrap">
+                <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Enter your email" required aria-label="Email address">
+                <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button id="submitBtn" class="cta" type="submit">
+                  <span class="btn-label">Notify me</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+              </div>
+              <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+            <div class="trust-row" aria-label="Personas">
+              <span>For staff, volunteers, donors, and recipients.</span>
             </div>
-        </section>
+          </div>
 
-        <section class="personas">
-            <h2>Designed for Heroes Like Mary.</h2>
-            <div class="persona-story">
-                <img src="https://via.placeholder.com/150" alt="Mary Johnson Persona" class="persona-img">
-                <blockquote>
-                    "I spend hours trying to coordinate donations and volunteers. I wish there was a simpler way to know what our community needs and manage our inventory."
-                    <cite>– Mary Johnson, Food Bank Staff</cite>
-                </blockquote>
+          <div class="hero-media reveal" data-reveal>
+            <div class="video-frame">
+              <!-- Replace the video source with your file when ready -->
+              <video id="heroVideo" playsinline muted loop preload="none" poster="" aria-label="NourishNet preview video">
+                <!-- <source src="./assets/hero.mp4" type="video/mp4"> -->
+              </video>
+              <div class="video-overlay">
+                <div class="video-badge">Preview</div>
+                <button class="play-ghost" type="button" id="playDemo" aria-label="Play preview">
+                  ▶
+                </button>
+                <p class="video-note">Your demo video placeholder</p>
+              </div>
             </div>
-            <p>NourishNet is built to empower dedicated staff like Mary, giving them the tools to focus on what truly matters: serving the community.</p>
-        </section>
+          </div>
+        </div>
+        <button class="scroll-cue" aria-label="Scroll to explore" data-scroll-to="#features">Scroll</button>
+      </section>
 
+      <section class="section features" id="features" aria-label="Key themes and needs">
+        <div class="container">
+          <h2 class="section-title">Design that serves people</h2>
+          <p class="section-lead">Built from stakeholder interviews to solve real operational pain points.</p>
+
+          <div class="cards">
+            <article class="card tilt reveal" data-reveal>
+              <div class="icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M3 5h18v2H3V5m0 6h18v2H3v-2m0 6h12v2H3v-2Z"/></svg>
+              </div>
+              <h3>Operations & Logistics</h3>
+              <p>Clarity for daily work with task dashboards, timelines, and fewer manual errors.</p>
+            </article>
+
+            <article class="card tilt reveal" data-reveal>
+              <div class="icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 1 5 5v3h1a3 3 0 0 1 0 6h-1v1a5 5 0 0 1-5 5h-1a1 1 0 0 1-1-1v-3H7a3 3 0 0 1 0-6h2V7a5 5 0 0 1 5-5Z"/></svg>
+              </div>
+              <h3>Acquisition & Partnerships</h3>
+              <p>Real-time sourcing lists and partner coordination that reduce chaos and delays.</p>
+            </article>
+
+            <article class="card tilt reveal" data-reveal>
+              <div class="icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h4l4 3 4-3h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/></svg>
+              </div>
+              <h3>Communication & Outreach</h3>
+              <p>Centralized messages with AI summaries that surface key logistics automatically.</p>
+            </article>
+
+            <article class="card tilt reveal" data-reveal>
+              <div class="icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 1-6.36 2.64A9 9 0 0 1 12 3m2 6h-4v6h4V9Z"/></svg>
+              </div>
+              <h3>Client Experience</h3>
+              <p>Dignified, culturally aware support with recipes and needs-aware packaging.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section modules" id="modules" aria-label="Core modules">
+        <div class="container">
+          <h2 class="section-title">Core modules</h2>
+          <div class="modules-wrap">
+            <article class="module reveal" data-reveal>
+              <h3>Intelligent Inventory & Sourcing</h3>
+              <ul>
+                <li>Predictive alerts for low-stock items</li>
+                <li>Collaborative sourcing list for field volunteers</li>
+                <li>Camera-based donation scanning with nutrition lookup</li>
+              </ul>
+            </article>
+            <article class="module reveal" data-reveal>
+              <h3>Streamlined Operations & Communication</h3>
+              <ul>
+                <li>Task dashboard for daily clarity</li>
+                <li>AI summaries that create events automatically</li>
+                <li>Pipeline view of deliveries and shifts</li>
+              </ul>
+            </article>
+            <article class="module reveal" data-reveal>
+              <h3>Recipient & Donor Experience</h3>
+              <ul>
+                <li>QR recipe suggestions per package</li>
+                <li>Donation history and real-time needs lists</li>
+                <li>Community impact visualizations</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section impact" id="impact" aria-label="Impact philosophy">
+        <div class="container">
+          <div class="impact-inner reveal" data-reveal>
+            <h2 class="section-title">Impact with care</h2>
+            <p>
+              NourishNet aligns operations with dignity. It simplifies staff workflows, supports volunteers, and lets donors contribute where it matters most—while prioritizing recipients’ cultural and dietary needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq" aria-label="Frequently asked questions">
+        <div class="container">
+          <h2 class="section-title">FAQ</h2>
+          <details class="accordion reveal" data-reveal>
+            <summary>Is there a sign up today?</summary>
+            <p>We’re building with partners. Join the early access list and we’ll keep you posted.</p>
+          </details>
+          <details class="accordion reveal" data-reveal>
+            <summary>Do you support small, local food banks?</summary>
+            <p>Yes. NourishNet is designed to be lightweight, intuitive, and adaptable for teams of any size.</p>
+          </details>
+          <details class="accordion reveal" data-reveal>
+            <summary>How will my email be used?</summary>
+            <p>Only to send product updates and early access invitations. No spam, ever.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section interest" id="interest" aria-label="Join interest list">
+        <div class="container">
+          <h2 class="section-title">Be the first to know</h2>
+          <p class="section-lead">Get early access invites and product updates.</p>
+          <form id="interestFormBottom" class="interest-form">
+            <div class="input-wrap">
+              <input id="emailBottom" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email" required aria-label="Email address">
+              <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button class="cta" type="submit">
+                <span class="btn-label">Notify me</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </div>
+            <p class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
     </main>
-    
-    <script src="script.js"></script>
-</body>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> NourishNet. Built with care.</p>
+        <div class="footer-links">
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+    <script>window.NOURISHNET_APPSCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCPtmim-uxGxYGQ0U6KO5B8imxsIjS8kkTrIC7UUsshjT7uw3RiEK3dRgA1sjRyGrh-A/exec';</script>
+    <script src="./script.js" defer></script>
+  </body>
 </html>
+
+
