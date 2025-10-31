@@ -25,6 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.18 });
   revealEls.forEach(el => revealObserver.observe(el));
 
+  // Storyline progress
+  const storyline = document.querySelector('.features .storyline');
+  if (storyline) {
+    const line = storyline.querySelector('.line .progress');
+    const updateLine = () => {
+      const rect = storyline.getBoundingClientRect();
+      const viewH = window.innerHeight || document.documentElement.clientHeight;
+      const start = Math.min(viewH, Math.max(0, viewH - rect.top));
+      const total = rect.height + viewH * 0.2;
+      const pct = Math.max(0, Math.min(1, start / total));
+      line && (line.style.height = (pct * 100).toFixed(1) + '%');
+    };
+    updateLine();
+    window.addEventListener('scroll', updateLine, { passive: true });
+    window.addEventListener('resize', updateLine);
+  }
+
   // Card tilt micro-interaction
   const tiltEls = Array.from(document.querySelectorAll('.tilt'));
   tiltEls.forEach(card => {
@@ -69,6 +86,36 @@ document.addEventListener('DOMContentLoaded', () => {
   bindForm(topForm, appsScriptUrl);
   bindForm(bottomForm, appsScriptUrl);
 
+  // Walkthrough: sync steps with mock screen
+  const steps = Array.from(document.querySelectorAll('.step-card'));
+  const screenLayers = Array.from(document.querySelectorAll('#mockScreen .screen-layer'));
+  const activateKey = (key) => {
+    if (!key) return;
+    let changed = false;
+    screenLayers.forEach(layer => {
+      const on = layer.getAttribute('data-key') === key;
+      if (on && !layer.classList.contains('active')) changed = true;
+      layer.classList.toggle('active', on);
+    });
+    steps.forEach(step => step.classList.toggle('active', step.getAttribute('data-key') === key));
+    if (changed && window.gtag) window.gtag('event', 'walkthrough_step', { key });
+  };
+
+  if (steps.length) {
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) activateKey(entry.target.getAttribute('data-key'));
+      });
+    }, { root: null, threshold: 0.5, rootMargin: '-15% 0px -50% 0px' });
+    steps.forEach(step => {
+      stepObserver.observe(step);
+      step.addEventListener('click', () => {
+        activateKey(step.getAttribute('data-key'));
+        step.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  }
+
   // Subtle parallax on blobs
   const blob1 = document.querySelector('.blob-1');
   const blob2 = document.querySelector('.blob-2');
@@ -85,6 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(raf);
   };
   raf();
+
+  // Values ribbon interactions
+  initValuesRibbon();
 });
 
 function bindForm(form, appsScriptUrl) {
@@ -145,6 +195,26 @@ function fireConfetti() {
   const defaults = { origin: { y: 0.8 }, zIndex: 30 };
   confetti({ ...defaults, particleCount: 60, spread: 60, scalar: 0.8, colors: ['#1f8a6b','#4dbb8f','#5aa8ff','#ffd39b'] });
   setTimeout(() => confetti({ ...defaults, particleCount: 40, spread: 70, startVelocity: 40, scalar: 0.9 }), 180);
+}
+
+function initValuesRibbon() {
+  const row = document.getElementById('valuesRow');
+  if (!row) return;
+  const cards = Array.from(row.querySelectorAll('.value-card'));
+  let idx = cards.findIndex(c => c.classList.contains('active')) || 0;
+
+  const activate = (i) => {
+    cards.forEach((c, j) => c.classList.toggle('active', j === i));
+    const el = cards[i];
+    el?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (window.gtag) window.gtag('event', 'values_focus', { key: el?.getAttribute('data-key') || String(i) });
+    idx = i;
+  };
+
+  cards.forEach((c, i) => c.addEventListener('click', () => activate(i)));
+
+  let timer = setInterval(() => activate((idx + 1) % cards.length), 5000);
+  row.addEventListener('pointerdown', () => { clearInterval(timer); });
 }
 
 

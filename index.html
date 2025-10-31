@@ -36,7 +36,6 @@
           <a href="#features">Features</a>
           <a href="#modules">Modules</a>
           <a href="#impact">Impact</a>
-          <a href="#faq">FAQ</a>
         </nav>
         <a class="cta ghost" href="#interest">Get early access</a>
       </div>
@@ -93,35 +92,29 @@
           <h2 class="section-title">Design that serves people</h2>
           <p class="section-lead">Built from stakeholder interviews to solve real operational pain points.</p>
 
-          <div class="cards">
-            <article class="card tilt reveal" data-reveal>
-              <div class="icon">
-                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M3 5h18v2H3V5m0 6h18v2H3v-2m0 6h12v2H3v-2Z"/></svg>
-              </div>
+          <div class="storyline">
+            <div class="line"><span class="progress"></span></div>
+
+            <article class="story left reveal" data-reveal>
+              <div class="dot"></div>
               <h3>Operations & Logistics</h3>
               <p>Clarity for daily work with task dashboards, timelines, and fewer manual errors.</p>
             </article>
 
-            <article class="card tilt reveal" data-reveal>
-              <div class="icon">
-                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 1 5 5v3h1a3 3 0 0 1 0 6h-1v1a5 5 0 0 1-5 5h-1a1 1 0 0 1-1-1v-3H7a3 3 0 0 1 0-6h2V7a5 5 0 0 1 5-5Z"/></svg>
-              </div>
+            <article class="story right reveal" data-reveal>
+              <div class="dot"></div>
               <h3>Acquisition & Partnerships</h3>
               <p>Real-time sourcing lists and partner coordination that reduce chaos and delays.</p>
             </article>
 
-            <article class="card tilt reveal" data-reveal>
-              <div class="icon">
-                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M20 2H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h4l4 3 4-3h4a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/></svg>
-              </div>
+            <article class="story left reveal" data-reveal>
+              <div class="dot"></div>
               <h3>Communication & Outreach</h3>
               <p>Centralized messages with AI summaries that surface key logistics automatically.</p>
             </article>
 
-            <article class="card tilt reveal" data-reveal>
-              <div class="icon">
-                <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 1-6.36 2.64A9 9 0 0 1 12 3m2 6h-4v6h4V9Z"/></svg>
-              </div>
+            <article class="story right reveal" data-reveal>
+              <div class="dot"></div>
               <h3>Client Experience</h3>
               <p>Dignified, culturally aware support with recipes and needs-aware packaging.</p>
             </article>
@@ -129,66 +122,135 @@
         </div>
       </section>
 
-      <section class="section modules" id="modules" aria-label="Core modules">
+      <section class="section walkthrough" id="modules" aria-label="Core modules">
         <div class="container">
           <h2 class="section-title">Core modules</h2>
-          <div class="modules-wrap">
-            <article class="module reveal" data-reveal>
-              <h3>Intelligent Inventory & Sourcing</h3>
-              <ul>
-                <li>Predictive alerts for low-stock items</li>
-                <li>Collaborative sourcing list for field volunteers</li>
-                <li>Camera-based donation scanning with nutrition lookup</li>
-              </ul>
-            </article>
-            <article class="module reveal" data-reveal>
-              <h3>Streamlined Operations & Communication</h3>
-              <ul>
-                <li>Task dashboard for daily clarity</li>
-                <li>AI summaries that create events automatically</li>
-                <li>Pipeline view of deliveries and shifts</li>
-              </ul>
-            </article>
-            <article class="module reveal" data-reveal>
-              <h3>Recipient & Donor Experience</h3>
-              <ul>
-                <li>QR recipe suggestions per package</li>
-                <li>Donation history and real-time needs lists</li>
-                <li>Community impact visualizations</li>
-              </ul>
-            </article>
+          <div class="walkthrough-inner">
+            <div class="sticky-mock">
+              <div class="device">
+                <div class="screen" id="mockScreen">
+                  <div class="screen-layer active" data-key="inventory">
+                    <div class="screen-bg inventory"></div>
+                    <div class="ui-sim">
+                      <div class="ui-title">Low stock alerts</div>
+                      <div class="list">
+                        <div class="item">
+                          <div class="label">Rice (12)</div>
+                          <span class="chip" title="Add to list"></span>
+                          <span class="bar w-70"></span>
+                        </div>
+                        <div class="item">
+                          <div class="label">Kidney Beans (8)</div>
+                          <span class="chip" title="Add to list"></span>
+                          <span class="bar w-50"></span>
+                        </div>
+                        <div class="item">
+                          <div class="label">Pasta (16)</div>
+                          <span class="chip" title="Add to list"></span>
+                          <span class="bar w-80"></span>
+                        </div>
+                      </div>
+                      <div class="mini-row">
+                        <div class="scan-cta">Scan donation</div>
+                        <div class="chart mini">
+                          <div class="vbar h-40"></div>
+                          <div class="vbar h-70"></div>
+                          <div class="vbar h-55"></div>
+                          <div class="vbar h-80"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="screen-caption">Predictive alerts + collaborative sourcing</div>
+                  </div>
+                  <div class="screen-layer" data-key="ops">
+                    <div class="screen-bg ops"></div>
+                    <div class="ui-sim">
+                      <div class="ui-title">Today’s tasks</div>
+                      <div class="task">
+                        <span class="dot"></span>
+                        <span class="label">Pick up donation at Green Farm</span>
+                        <span class="pill">10:00</span>
+                      </div>
+                      <div class="task">
+                        <span class="dot"></span>
+                        <span class="label">Sort produce + scan items</span>
+                        <span class="pill">11:30</span>
+                      </div>
+                      <div class="task">
+                        <span class="dot"></span>
+                        <span class="label">Schedule delivery to Oak School</span>
+                        <span class="pill">2:00</span>
+                      </div>
+                      <div class="timeline">
+                        <span class="tick"></span>
+                        <span class="tick"></span>
+                        <span class="tick active"></span>
+                        <span class="tick"></span>
+                      </div>
+                    </div>
+                    <div class="screen-caption">Tasks + AI summaries + pipeline view</div>
+                  </div>
+                  <div class="screen-layer" data-key="experience">
+                    <div class="screen-bg experience"></div>
+                    <div class="ui-sim">
+                      <div class="ui-title">Family Pack #342</div>
+                      <div class="recipe">
+                        <div class="label">Recipe: Hearty Bean Chili</div>
+                        <div class="chips">
+                          <span class="chip" title="Beans"></span>
+                          <span class="chip" title="Tomatoes"></span>
+                          <span class="chip" title="Spices"></span>
+                        </div>
+                      </div>
+                      <div class="mini-row">
+                        <div class="needs">
+                          <div class="need"><span class="dot"></span><span class="tiny">Halal</span></div>
+                          <div class="need"><span class="dot"></span><span class="tiny">Gluten‑free</span></div>
+                        </div>
+                        <div class="impact-mini">
+                          <span class="ring"></span>
+                          <span class="ring"></span>
+                          <span class="ring"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="screen-caption">QR recipes + impact visuals</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="steps">
+              <article class="step-card reveal" data-reveal data-key="inventory">
+                <h3>Intelligent Inventory & Sourcing</h3>
+                <ul>
+                  <li>Predictive alerts for low-stock items</li>
+                  <li>Collaborative sourcing list for field volunteers</li>
+                  <li>Camera-based donation scanning with nutrition lookup</li>
+                </ul>
+              </article>
+
+              <article class="step-card reveal" data-reveal data-key="ops">
+                <h3>Streamlined Operations & Communication</h3>
+                <ul>
+                  <li>Task dashboard for daily clarity</li>
+                  <li>AI summaries that create events automatically</li>
+                  <li>Pipeline view of deliveries and shifts</li>
+                </ul>
+              </article>
+
+              <article class="step-card reveal" data-reveal data-key="experience">
+                <h3>Recipient & Donor Experience</h3>
+                <ul>
+                  <li>QR recipe suggestions per package</li>
+                  <li>Donation history and real-time needs lists</li>
+                  <li>Community impact visualizations</li>
+                </ul>
+              </article>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section class="section impact" id="impact" aria-label="Impact philosophy">
-        <div class="container">
-          <div class="impact-inner reveal" data-reveal>
-            <h2 class="section-title">Impact with care</h2>
-            <p>
-              NourishNet aligns operations with dignity. It simplifies staff workflows, supports volunteers, and lets donors contribute where it matters most—while prioritizing recipients’ cultural and dietary needs.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section faq" id="faq" aria-label="Frequently asked questions">
-        <div class="container">
-          <h2 class="section-title">FAQ</h2>
-          <details class="accordion reveal" data-reveal>
-            <summary>Is there a sign up today?</summary>
-            <p>We’re building with partners. Join the early access list and we’ll keep you posted.</p>
-          </details>
-          <details class="accordion reveal" data-reveal>
-            <summary>Do you support small, local food banks?</summary>
-            <p>Yes. NourishNet is designed to be lightweight, intuitive, and adaptable for teams of any size.</p>
-          </details>
-          <details class="accordion reveal" data-reveal>
-            <summary>How will my email be used?</summary>
-            <p>Only to send product updates and early access invitations. No spam, ever.</p>
-          </details>
-        </div>
-      </section>
+      </section>      
 
       <section class="section interest" id="interest" aria-label="Join interest list">
         <div class="container">
