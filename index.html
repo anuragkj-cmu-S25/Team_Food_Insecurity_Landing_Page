@@ -90,7 +90,7 @@
       <section class="section features" id="features" aria-label="Key themes and needs">
         <div class="container">
           <h2 class="section-title">Design that serves people</h2>
-          <p class="section-lead">Built from stakeholder interviews to solve real operational pain points.</p>
+          <p class="section-lead">Grounded in real food bank workflows: inventory, sourcing, donations, logistics, and client support.</p>
 
           <div class="storyline">
             <div class="line"><span class="progress"></span></div>
@@ -110,7 +110,7 @@
             <article class="story left reveal" data-reveal>
               <div class="dot"></div>
               <h3><span class="icon" aria-hidden="true">💬</span>Communication & Outreach</h3>
-              <p>Centralized messages with AI summaries that surface key logistics automatically.</p>
+              <p>AI extracts delivery details from emails and guides forwarding to the right inbox.</p>
             </article>
 
             <article class="story right reveal" data-reveal>
@@ -127,8 +127,8 @@
 
             <article class="story right reveal" data-reveal>
               <div class="dot"></div>
-              <h3><span class="icon" aria-hidden="true">🥗</span>Nutrition & Dignity</h3>
-              <p>Needs-aware packing and culturally relevant recipes that respect client preferences.</p>
+              <h3><span class="icon" aria-hidden="true">📷</span>Donation Scanning</h3>
+              <p>Scan food donations with a camera for fast item identification and nutrition lookup.</p>
             </article>
           </div>
         </div>
@@ -141,10 +141,10 @@
             <div class="sticky-mock">
               <div class="device">
                 <div class="screen" id="mockScreen">
-                  <div class="screen-layer active" data-key="inventory">
+                  <div class="screen-layer active" data-key="alerts">
                     <div class="screen-bg inventory"></div>
                     <div class="ui-sim">
-                      <div class="ui-title">Low stock alerts</div>
+                      <div class="ui-title">AI low‑stock alerts</div>
                       <div class="list">
                         <div class="item">
                           <div class="label">Rice (12)</div>
@@ -172,9 +172,82 @@
                         </div>
                       </div>
                     </div>
-                    <div class="screen-caption">Predictive alerts + collaborative sourcing</div>
+                    <div class="screen-caption">Predictive alerts for replenishment</div>
                   </div>
-                  <div class="screen-layer" data-key="ops">
+                  <div class="screen-layer" data-key="sourcing">
+                    <div class="screen-bg ops"></div>
+                    <div class="ui-sim">
+                      <div class="ui-title">Sourcing list</div>
+                      <div class="list">
+                        <div class="item">
+                          <div class="label">Canned Tomatoes × 24</div>
+                          <span class="chip" title="Mark sourced"></span>
+                          <span class="bar w-60"></span>
+                        </div>
+                        <div class="item">
+                          <div class="label">Brown Rice × 10</div>
+                          <span class="chip" title="Mark sourced"></span>
+                          <span class="bar w-50"></span>
+                        </div>
+                        <div class="item">
+                          <div class="label">Chickpeas × 18</div>
+                          <span class="chip" title="Mark sourced"></span>
+                          <span class="bar w-70"></span>
+                        </div>
+                      </div>
+                      <div class="mini-row">
+                        <div class="scan-cta">Share with field</div>
+                        <div class="timeline">
+                          <span class="tick"></span>
+                          <span class="tick active"></span>
+                          <span class="tick"></span>
+                          <span class="tick"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="screen-caption">Collaborative sourcing with real‑time updates</div>
+                  </div>
+                  <div class="screen-layer" data-key="scan">
+                    <div class="screen-bg inventory"></div>
+                    <div class="ui-sim">
+                      <div class="ui-title">Scan donation</div>
+                      <div class="camera"></div>
+                      <div class="list">
+                        <div class="item">
+                          <div class="label">Detected: Kidney Beans</div>
+                          <span class="bar w-60"></span>
+                        </div>
+                        <div class="item">
+                          <div class="label">Calories · Protein · Sodium</div>
+                          <span class="bar w-50"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="screen-caption">Camera-based donation scanning + nutrition</div>
+                  </div>
+                  <div class="screen-layer" data-key="email">
+                    <div class="screen-bg ops"></div>
+                    <div class="ui-sim">
+                      <div class="ui-title">Delivery email → Event</div>
+                      <div class="kpi-row">
+                        <div class="kpi"></div>
+                        <div class="kpi"></div>
+                        <div class="kpi"></div>
+                      </div>
+                      <div class="list">
+                        <div class="item">
+                          <div class="label">Date: Tue 10:00 • Oak School</div>
+                          <span class="bar w-70"></span>
+                        </div>
+                        <div class="item">
+                          <div class="label">Items: 40 pantry boxes</div>
+                          <span class="bar w-60"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="screen-caption">Auto‑create delivery events from emails</div>
+                  </div>
+                  <div class="screen-layer" data-key="tasks">
                     <div class="screen-bg ops"></div>
                     <div class="ui-sim">
                       <div class="ui-title">Today’s tasks</div>
@@ -200,9 +273,9 @@
                         <span class="tick"></span>
                       </div>
                     </div>
-                    <div class="screen-caption">Tasks + AI summaries + pipeline view</div>
+                    <div class="screen-caption">Task dashboard + pipeline view</div>
                   </div>
-                  <div class="screen-layer" data-key="experience">
+                  <div class="screen-layer" data-key="qr">
                     <div class="screen-bg experience"></div>
                     <div class="ui-sim">
                       <div class="ui-title">Family Pack #342</div>
@@ -226,39 +299,41 @@
                         </div>
                       </div>
                     </div>
-                    <div class="screen-caption">QR recipes + impact visuals</div>
+                    <div class="screen-caption">QR recipes + needs‑aware packing</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="steps">
-              <article class="step-card reveal" data-reveal data-key="inventory">
-                <h3>Intelligent Inventory & Sourcing</h3>
-                <ul>
-                  <li>Predictive alerts for low-stock items</li>
-                  <li>Collaborative sourcing list for field volunteers</li>
-                  <li>Camera-based donation scanning with nutrition lookup</li>
-                </ul>
-              </article>
-
-              <article class="step-card reveal" data-reveal data-key="ops">
-                <h3>Streamlined Operations & Communication</h3>
-                <ul>
-                  <li>Task dashboard for daily clarity</li>
-                  <li>AI summaries that create events automatically</li>
-                  <li>Pipeline view of deliveries and shifts</li>
-                </ul>
-              </article>
-
-              <article class="step-card reveal" data-reveal data-key="experience">
-                <h3>Recipient & Donor Experience</h3>
-                <ul>
-                  <li>QR recipe suggestions per package</li>
-                  <li>Donation history and real-time needs lists</li>
-                  <li>Community impact visualizations</li>
-                </ul>
-              </article>
+            <div class="modules-columns" id="featureGrid">
+              <div class="modules-col left">
+                <article class="feature-card reveal active" data-reveal data-key="alerts">
+                  <h3>AI Inventory Alerts</h3>
+                  <p>Predict low‑stock items and queue replenishment.</p>
+                </article>
+                <article class="feature-card reveal" data-reveal data-key="scan">
+                  <h3>Scan Donations</h3>
+                  <p>Camera scan for fast item ID and nutrition lookup.</p>
+                </article>
+                <article class="feature-card reveal" data-reveal data-key="tasks">
+                  <h3>Task Dashboard</h3>
+                  <p>Plan the day with a clear pipeline of work.</p>
+                </article>
+              </div>
+              <div class="modules-col right">
+                <article class="feature-card reveal" data-reveal data-key="sourcing">
+                  <h3>Sourcing List</h3>
+                  <p>Build and share a live list with field volunteers.</p>
+                </article>
+                <article class="feature-card reveal" data-reveal data-key="email">
+                  <h3>Emails → Events</h3>
+                  <p>Auto‑extract logistics and create calendar events.</p>
+                </article>
+                <article class="feature-card reveal" data-reveal data-key="qr">
+                  <h3>QR Recipes</h3>
+                  <p>Package recipes and needs‑aware guidance.</p>
+                </article>
+              </div>
             </div>
           </div>
         </div>

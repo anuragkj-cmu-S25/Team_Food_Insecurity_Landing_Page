@@ -82,8 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
   bindForm(topForm, appsScriptUrl);
   bindForm(bottomForm, appsScriptUrl);
 
-  // Walkthrough: sync steps with mock screen
-  const steps = Array.from(document.querySelectorAll('.step-card'));
+  // Walkthrough: sync bento grid cards with mock screen (no timeline)
+  const featureGrid = document.getElementById('featureGrid');
+  const featureCards = Array.from(featureGrid ? featureGrid.querySelectorAll('.feature-card') : []);
   const screenLayers = Array.from(document.querySelectorAll('#mockScreen .screen-layer'));
   const activateKey = (key) => {
     if (!key) return;
@@ -93,24 +94,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (on && !layer.classList.contains('active')) changed = true;
       layer.classList.toggle('active', on);
     });
-    steps.forEach(step => step.classList.toggle('active', step.getAttribute('data-key') === key));
+    featureCards.forEach(card => card.classList.toggle('active', card.getAttribute('data-key') === key));
     if (changed && window.gtag) window.gtag('event', 'walkthrough_step', { key });
   };
 
-  if (steps.length) {
-    let userSelecting = false;
-    const stepObserver = new IntersectionObserver((entries) => {
-      if (userSelecting) return; // prevent flicker while user clicks
+  if (featureCards.length) {
+    // Default to first card's key
+    activateKey(featureCards[0].getAttribute('data-key'));
+    // Intersection-based activation on scroll
+    const featureObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) activateKey(entry.target.getAttribute('data-key'));
+        if (entry.isIntersecting) {
+          const key = entry.target.getAttribute('data-key');
+          activateKey(key);
+        }
       });
-    }, { root: null, threshold: 0.8, rootMargin: '-10% 0px -70% 0px' });
-    steps.forEach(step => {
-      stepObserver.observe(step);
-      step.addEventListener('click', () => {
-        userSelecting = true;
-        activateKey(step.getAttribute('data-key'));
-        setTimeout(() => { userSelecting = false; }, 700);
+    }, { threshold: 0.45, rootMargin: '-25% 0px -45% 0px' });
+    featureCards.forEach(card => {
+      featureObserver.observe(card);
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-key');
+        activateKey(key);
       });
     });
   }
