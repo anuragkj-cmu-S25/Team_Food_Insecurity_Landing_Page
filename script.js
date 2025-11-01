@@ -32,9 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateLine = () => {
       const rect = storyline.getBoundingClientRect();
       const viewH = window.innerHeight || document.documentElement.clientHeight;
-      const start = Math.min(viewH, Math.max(0, viewH - rect.top));
-      const total = rect.height + viewH * 0.2;
-      const pct = Math.max(0, Math.min(1, start / total));
+      // Adjust calculation to work better on all screen sizes
+      const scrolled = viewH - rect.top;
+      const total = rect.height + viewH;
+      const pct = Math.max(0, Math.min(1, scrolled / total));
       line && (line.style.height = (pct * 100).toFixed(1) + '%');
     };
     updateLine();
