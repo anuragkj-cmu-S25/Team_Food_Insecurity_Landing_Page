@@ -70,16 +70,16 @@
 
           <div class="hero-media reveal" data-reveal>
             <div class="video-frame">
-              <!-- Replace the video source with your file when ready -->
-              <video id="heroVideo" playsinline muted loop preload="none" poster="" aria-label="NourishNet preview video">
-                <!-- <source src="./assets/hero.mp4" type="video/mp4"> -->
-              </video>
+              <!-- YouTube Embed -->
+              <div class="video-holder">
+                <iframe id="heroFrame" title="NourishNet preview video" data-src="https://www.youtube.com/embed/tX9LHq-LuJI?autoplay=1&mute=1&loop=1&playsinline=1&controls=0&modestbranding=1&rel=0&playlist=tX9LHq-LuJI" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+              </div>
               <div class="video-overlay">
                 <div class="video-badge">Preview</div>
                 <button class="play-ghost" type="button" id="playDemo" aria-label="Play preview">
                   ▶
                 </button>
-                <p class="video-note">Your demo video placeholder</p>
+                <p class="video-note">Watch preview</p>
               </div>
             </div>
           </div>

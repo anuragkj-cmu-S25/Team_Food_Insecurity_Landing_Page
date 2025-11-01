@@ -61,21 +61,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Hero video play button
-  const heroVideo = document.getElementById('heroVideo');
+  const heroFrame = document.getElementById('heroFrame');
   const playDemo = document.getElementById('playDemo');
   if (playDemo) {
-    playDemo.addEventListener('click', async () => {
-      try {
-        if (heroVideo && heroVideo.querySelector('source')) {
-          await heroVideo.play();
-          document.querySelector('.video-overlay')?.classList.add('is-playing');
-          if (window.gtag) window.gtag('event', 'video_play', { section: 'hero' });
-        } else {
-          // Pulse to indicate placeholder
-          playDemo.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 600, easing: 'ease-out' });
-        }
-      } catch (err) {
-        // Ignore autoplay errors
+    playDemo.addEventListener('click', () => {
+      const src = heroFrame?.getAttribute('data-src');
+      if (heroFrame && src && !heroFrame.getAttribute('src')) {
+        heroFrame.setAttribute('src', src);
+        document.querySelector('.video-overlay')?.classList.add('is-playing');
+        if (window.gtag) window.gtag('event', 'video_play', { section: 'hero' });
+      } else {
+        playDemo.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.08)' }, { transform: 'scale(1)' }], { duration: 600, easing: 'ease-out' });
       }
     });
   }
@@ -102,16 +98,19 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (steps.length) {
+    let userSelecting = false;
     const stepObserver = new IntersectionObserver((entries) => {
+      if (userSelecting) return; // prevent flicker while user clicks
       entries.forEach(entry => {
         if (entry.isIntersecting) activateKey(entry.target.getAttribute('data-key'));
       });
-    }, { root: null, threshold: 0.5, rootMargin: '-15% 0px -50% 0px' });
+    }, { root: null, threshold: 0.8, rootMargin: '-10% 0px -70% 0px' });
     steps.forEach(step => {
       stepObserver.observe(step);
       step.addEventListener('click', () => {
+        userSelecting = true;
         activateKey(step.getAttribute('data-key'));
-        step.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => { userSelecting = false; }, 700);
       });
     });
   }

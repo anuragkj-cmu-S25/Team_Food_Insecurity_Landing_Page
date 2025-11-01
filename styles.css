@@ -73,7 +73,10 @@ body {
 
 .hero-media { display: grid; place-items: center; }
 .video-frame { position: relative; width: 100%; aspect-ratio: 16/10; border-radius: var(--radius-lg); overflow: hidden; background: linear-gradient(145deg, #f7fbff, #eef5ff); border: 1px solid var(--glass-stroke); box-shadow: 0 30px 60px rgba(38,84,124,.12); }
+.video-holder { position: absolute; inset: 0; }
+.video-holder iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
 .video-overlay { position: absolute; inset: 0; display: grid; place-items: center; gap: 12px; background: radial-gradient(60% 60% at 50% 45%, rgba(255,255,255,.75) 0%, rgba(255,255,255,.15) 60%, rgba(255,255,255,0) 100%); backdrop-filter: blur(2px); text-align: center; }
+.video-overlay.is-playing { opacity: 0; pointer-events: none; transition: opacity .3s ease; }
 .video-badge { position: absolute; left: 12px; top: 12px; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.8); border: 1px solid var(--glass-stroke); font-size: .8rem; font-weight: 700; color: var(--muted); }
 .play-ghost { border: 0; width: 64px; height: 64px; border-radius: 50%; display: inline-grid; place-items: center; background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; box-shadow: var(--shadow); cursor: pointer; font-size: 22px; }
 .video-note { margin: 0; color: var(--muted); font-weight: 600; }
@@ -108,8 +111,10 @@ body {
 .walkthrough { background: linear-gradient(180deg, #f7fbff, #eef5ff); }
 .walkthrough-inner { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 28px; align-items: start; }
 .sticky-mock { position: sticky; top: 100px; }
-.device { width: min(100%, 300px); aspect-ratio: 9/19; background: linear-gradient(180deg, #ffffff, #f2f7ff); border: 1px solid var(--glass-stroke); border-radius: 24px; box-shadow: 0 24px 48px rgba(38,84,124,.14), inset 0 2px 0 rgba(255,255,255,.8); padding: 12px; margin: 0 auto; }
+.device { position: relative; width: min(100%, 300px); aspect-ratio: 9/19; background: linear-gradient(180deg, #eef3ff, #e7efff); border: 10px solid #d6e1f3; border-radius: 28px; box-shadow: 0 24px 48px rgba(38,84,124,.14); padding: 12px; margin: 0 auto; }
 .screen { position: relative; width: 100%; height: 100%; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid var(--glass-stroke); }
+.device::before { content: ""; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 64px; height: 6px; border-radius: 6px; background: #a8b8d8; opacity: .55; }
+.device::after { content: ""; position: absolute; top: 6px; left: calc(50% + 48px); width: 6px; height: 6px; border-radius: 50%; background: #7f91b3; opacity: .8; }
 .screen-layer { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease; display: grid; place-items: end center; }
 .screen-layer.active { opacity: 1; }
 .screen-bg { position: absolute; inset: 0; background-size: 200% 200%; animation: bgpan 18s ease-in-out infinite; filter: saturate(120%); }
