@@ -120,6 +120,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Audience rotator: sequentially emphasize target personas
+  const audienceWords = Array.from(document.querySelectorAll('.trust-row .aud'));
+  if (audienceWords.length) {
+    let idx = 0;
+    const activate = (i) => {
+      audienceWords.forEach((el, j) => el.classList.toggle('active', j === i));
+    };
+    activate(0);
+    setInterval(() => {
+      idx = (idx + 1) % audienceWords.length;
+      activate(idx);
+    }, 1600);
+  }
+
   // Subtle parallax on blobs
   const blob1 = document.querySelector('.blob-1');
   const blob2 = document.querySelector('.blob-2');

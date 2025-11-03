@@ -106,7 +106,11 @@ body {
 .video-frame::before,
 .video-frame::after { content: none; }
 
-.trust-row { margin-top: 8px; color: var(--muted); font-weight: 600; }
+.trust-row { margin-top: 8px; color: var(--muted); font-weight: 600; font-size: 1.15rem; }
+/* Audience rotator emphasis */
+.audience-rotator { display: inline-block; }
+.audience-rotator .aud { display: inline-block; margin: 0 .18em; padding: 0 .06em; transition: color .3s ease, transform .3s ease, text-shadow .3s ease, letter-spacing .3s ease; transform-origin: center bottom; }
+.audience-rotator .aud.active { color: var(--accent); transform: scale(1.12); letter-spacing: .02em; text-shadow: 0 3px 12px rgba(90,168,255,.35); }
 
 .scroll-cue { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); border: 0; background: transparent; color: var(--muted); font-weight: 700; cursor: pointer; }
 .scroll-cue::after { content: "▾"; display: block; font-size: 22px; animation: bounce 1.8s ease-in-out infinite; }
