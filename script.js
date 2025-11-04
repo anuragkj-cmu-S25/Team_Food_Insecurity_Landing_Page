@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function bindForm(form, appsScriptUrl) {
   if (!form) return;
   const emailInput = form.querySelector('input[type="email"]');
+  const nameInput = form.querySelector('input[name="name"]');
   const btn = form.querySelector('button');
   const msg = form.querySelector('.form-message') || document.getElementById('formMessage');
 
@@ -174,7 +175,13 @@ function bindForm(form, appsScriptUrl) {
     e.preventDefault();
     const spamField = form.querySelector('.hp');
     if (spamField && spamField.value) return; // honeypot
+    const name = (nameInput && nameInput.value || '').trim();
     const email = (emailInput && emailInput.value || '').trim();
+    if (nameInput && name.length < 2) {
+      if (msg) { msg.textContent = 'Please enter your name.'; msg.classList.add('error'); }
+      nameInput?.focus();
+      return;
+    }
     if (!isValidEmail(email)) {
       if (msg) { msg.textContent = 'Please enter a valid email address.'; msg.classList.add('error'); }
       emailInput?.focus();
@@ -182,10 +189,12 @@ function bindForm(form, appsScriptUrl) {
     }
     form.classList.add('is-loading');
     btn?.setAttribute('disabled', 'true');
+    nameInput?.setAttribute('disabled', 'true');
     emailInput?.setAttribute('disabled', 'true');
 
     try {
       const fd = new FormData();
+      if (nameInput) fd.append('name', name);
       fd.append('email', email);
       const res = await fetch(appsScriptUrl, { method: 'POST', body: fd, mode: 'cors' });
       if (!res.ok) throw new Error('Network error');
@@ -197,6 +206,7 @@ function bindForm(form, appsScriptUrl) {
     } catch (err) {
       if (msg) { msg.textContent = 'Something went wrong. Please try again in a moment.'; msg.classList.add('error'); }
       btn?.removeAttribute('disabled');
+      nameInput?.removeAttribute('disabled');
       emailInput?.removeAttribute('disabled');
     } finally {
       form.classList.remove('is-loading');
