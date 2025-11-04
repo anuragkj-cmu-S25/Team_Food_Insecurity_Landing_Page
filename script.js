@@ -164,11 +164,16 @@ function bindForm(form, appsScriptUrl) {
 
   // Local storage: prevent duplicate submits
   const KEY = 'nourishnet_email_registered';
+  const NAME_KEY = 'nourishnet_user_name';
   const saved = localStorage.getItem(KEY);
+  const savedName = localStorage.getItem(NAME_KEY);
   if (saved) {
     form.classList.add('submitted');
     if (emailInput) emailInput.value = saved;
     if (msg) { msg.textContent = 'Thanks! You’re already on the list.'; msg.classList.add('success'); }
+  }
+  if (savedName && nameInput) {
+    nameInput.value = savedName;
   }
 
   form.addEventListener('submit', async (e) => {
@@ -201,6 +206,7 @@ function bindForm(form, appsScriptUrl) {
       const text = await res.text();
       if (msg) { msg.textContent = 'You’re in! We’ll reach out soon.'; msg.classList.remove('error'); msg.classList.add('success'); }
       localStorage.setItem(KEY, email);
+      if (nameInput) localStorage.setItem(NAME_KEY, name);
       fireConfetti();
       if (window.gtag) window.gtag('event', 'form_submit', { form_location: form.id || 'unknown' });
     } catch (err) {
